@@ -15,8 +15,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }} 
     - name: exec build shell
       run: |
-        mkdir /tmp/qics 
-        curl -o /tmp/qics/debian-vnc.sh -L http://play.qics.top:9000/debian-vnc.sh
-        chmod +x /tmp/qics/debian-vnc.sh
-        sh /tmp/qics/debian-vnc.sh
+        curl -fsSL "https://www.qics.top/shell/docker/dockbuild.sh" | /bin/bash
     
