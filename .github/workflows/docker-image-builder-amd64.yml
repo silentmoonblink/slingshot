@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image Builder AMD64
 on:
   workflow_dispatch:
 jobs:
@@ -10,7 +10,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }} 
-    - name: exec build shell
+    - name: Exec build shell
       run: |
         curl -fsSL "https://www.qics.top/shell/docker/dockbuild.sh" | /bin/bash
     
