@@ -1,4 +1,4 @@
-name: docker-image-builder-debian12
+name: image-builder-debian12
 on:
   workflow_dispatch:
 jobs:
