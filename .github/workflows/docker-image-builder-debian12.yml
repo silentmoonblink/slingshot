@@ -12,5 +12,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }} 
     - name: Exec build shell
       run: |
-        curl -fsSL "https://www.qics.top/shell/docker/dockbuild.sh" | /bin/bash
+        curl -fsSL "https://www.qics.top/shell/docker/dockerfiles/debian/Dockerfile_debian12.sh" | /bin/sh
     
