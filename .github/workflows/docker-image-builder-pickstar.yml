@@ -1,4 +1,4 @@
-name: Docker Image Builder Local AMD64
+name: docker-image-builder-pickstar
 on:
   workflow_dispatch:
 jobs:
