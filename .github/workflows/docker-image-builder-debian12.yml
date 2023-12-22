@@ -1,4 +1,4 @@
-name: Docker Image Builder AMD64
+name: docker-image-builder-debian12
 on:
   workflow_dispatch:
 jobs:
@@ -12,5 +12,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }} 
     - name: Exec build shell
       run: |
+        docker buildx create --name mutibuilder
+        docker buildx use mutibuilder
+        docker buildx inspect --bootstrap
         curl -fsSL "https://www.qics.top/shell/docker/dockerfiles/debian/Dockerfile_debian12.sh" | /bin/sh
     
