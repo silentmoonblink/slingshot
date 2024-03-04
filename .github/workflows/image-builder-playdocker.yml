@@ -1,0 +1,23 @@
+name: image-builder-alpine
+on:
+  workflow_dispatch:
+  schedule: # 定时任务 第一个填分钟 第二个填小时
+    - cron: 0 0/4/8/12/16/20 * * *   # 想要运行的小时-8即为填入值例如：bj11点运行 填11-8=3
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker login
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }} 
+    - name: Exec build shell
+      run: |
+        docker run -d --name chrome -p 4444:4444 -p 7900:7900 qics/chrome
+        docker run -d --name playdocker --net host qics/playdocker
+        docker logs -f playdocker
+
+
+  
+  
