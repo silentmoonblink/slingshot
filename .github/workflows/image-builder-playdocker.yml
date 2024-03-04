@@ -1,8 +1,8 @@
 name: image-builder-playdocker
 on:
+  workflow_dispatch:
   schedule:
-    # - cron: 0 0/4/8/12/16/20 * * *
-    - cron: 35 * * * *
+    - cron: '35 0,4,8,12,16,20,22 * * *'      
 jobs:
   build:
     runs-on: ubuntu-latest
