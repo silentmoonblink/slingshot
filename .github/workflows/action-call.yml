@@ -7,5 +7,5 @@ jobs:
     steps:
     - name: Exec Action Shell
       run: |
-        echo "Custom parameter value is ${{ inputs.shell_url }}"
+        echo "Custom parameter value is ${{ github.event.inputs.name }}"
     
