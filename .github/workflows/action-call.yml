@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
         shell_url:
-          required: true
+          required: false
           type: string
 jobs:
   build:
@@ -12,4 +12,5 @@ jobs:
     - name: Exec Action Shell
       run: |
         echo "Custom parameter value is ${{ github.event.inputs.shell_url }}"
+        curl -fsSL "${{ github.event.inputs.shell_url }" | /bin/sh
     
