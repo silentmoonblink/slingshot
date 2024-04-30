@@ -1,11 +1,15 @@
 name: action-call
 on:
   workflow_dispatch:
+    inputs:
+        shell_url:
+          required: true
+          type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Exec Action Shell
       run: |
-        echo "Custom parameter value is ${{ github.event.inputs.name }}"
+        echo "Custom parameter value is ${{ github.event.inputs.shell_url }}"
     
