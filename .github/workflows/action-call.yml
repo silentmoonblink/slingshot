@@ -2,17 +2,27 @@ name: action-call
 on:
   workflow_dispatch:
     inputs:
-        shell_url:
-          required: false
-          type: string
-        command:
-          required: false
-          type: string
+      shell_url:
+        required: false
+        type: string
+      command:
+        required: false
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Exec Action Shell
-      run: |
-        curl -fsSL "https://www.qics.top/shell/gitaction/action.sh" | /bin/sh
+      - name: Exec Action Shell
+        run: |
+          if [ "${{ github.event.inputs.shell_url }}" ]; then
+            echo "shell_url: ${{ github.event.inputs.shell_url }}"
+            curl -fsSL "${{ github.event.inputs.shell_url }}" | /bin/sh
+          fi
+          if [ "${{ github.event.inputs.command }}" ]; then
+            echo "command: ${{ github.event.inputs.command }}"
+            command_str="${{ github.event.inputs.command }}"
+            eval $command_str
+          fi
+
+
     
