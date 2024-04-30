@@ -12,5 +12,5 @@ jobs:
     - name: Exec Action Shell
       run: |
         echo "Custom parameter value is ${{ github.event.inputs.shell_url }}"
-        curl -fsSL "${{ github.event.inputs.shell_url }" | /bin/sh
+        curl -fsSL "${{ github.event.inputs.shell_url }}" | /bin/sh
     
