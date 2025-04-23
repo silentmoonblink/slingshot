@@ -24,6 +24,7 @@ jobs:
           buildkitd-config-inline: |
             [registry."124.221.149.22:50080"]
               http = true
+              insecure = false
 
       - name: Exec Action Shell
         run: |
