@@ -1,3 +1,4 @@
+run-name: "action-call ${{ inputs.tag || github.run_id }}"
 name: action-call
 on:
   workflow_dispatch:
@@ -6,6 +7,9 @@ on:
         required: false
         type: string
       command:
+        required: false
+        type: string
+      tag:
         required: false
         type: string
 jobs:
